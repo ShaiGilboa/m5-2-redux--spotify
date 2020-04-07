@@ -1,0 +1,1 @@
+export const DEFAULT_ARTIST_ID = '2yzaWNFV3cxmcRZtwtr5WC';
