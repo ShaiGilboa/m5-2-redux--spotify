@@ -83,13 +83,13 @@ const App = () => {
     fetch('/hockey')
       .then((res) => res.json())
       .then((scores) => {
-        // TODO
+        dispatch(receiveHockeyScores(scores));
       });
 
     fetch('/baseball')
       .then((res) => res.json())
       .then((scores) => {
-        // TODO
+        dispatch(receiveBaseballScores(scores));
       });
   }, []);
 
@@ -105,6 +105,54 @@ Update this example so that it dispatches an action when _both_ of the endpoints
 
 ---
 
+```js
+const receiveAllScores = () => ({
+  type: 'RECEIVE_ALL_SCORES',
+});
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    // Dispatch `receiveAllScores` after BOTH fetches have completed
+
+    fetch('/hockey').then((scores) => {
+      dispatch(receiveHockeyScores(scores));
+    });
+
+    fetch('/baseball').then((scores) => {
+      dispatch(receiveBaseballScores(scores));
+    });
+  }, []);
+
+  return <Scores />;
+};
+```
+```js
+const receiveAllScores = () => ({
+  type: 'RECEIVE_ALL_SCORES',
+});
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    // Dispatch `receiveAllScores` after BOTH fetches have completed
+
+    fetch('/hockey')
+      .then((scores) => {
+        dispatch(receiveHockeyScores(scores));
+      })
+        .then(fetch('/baseball')
+          .then((scores) => {
+              dispatch(receiveBaseballScores(scores));
+            })
+          .then(dispatch(receiveAllScores()))
+  }, []))
+
+  return <Scores />;
+};
+```
 ```js
 const receiveAllScores = () => ({
   type: 'RECEIVE_ALL_SCORES',
