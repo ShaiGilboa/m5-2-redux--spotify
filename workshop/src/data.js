@@ -1,1 +1,1 @@
-export const DEFAULT_ARTIST_ID = '2yzaWNFV3cxmcRZtwtr5WC';
+export const DEFAULT_ARTIST_ID = '2yzaWNFV3cxmcRZtwtr5WC'//'2yzaWNFV3cxmcRZtwtr5WC'//'73sIBHcqh3Z3NyqHKZ7FOL';

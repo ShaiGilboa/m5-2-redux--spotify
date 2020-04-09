@@ -8,5 +8,20 @@ export const receiveAccessToken = (token) => ({
 });
 
 export const receiveAccessTokenError = () => ({
-  type: 'RECIEVE_ACCESS_TOKEN_ERROR',
+  type: 'RECEIVE_ACCESS_TOKEN_ERROR',
+})
+
+export const requestArtistInfo = () => ({
+  type: 'REQUEST_ARTIST_INFO',
+});
+
+export const receiveArtistInfo = (artistInfo, tracks, artists) => ({
+  type: 'RECEIVE_ARTIST_INFO',
+  artistInfo,
+  tracks,
+  artists,
+});
+
+export const receiveArtistInfoError = () => ({
+  type: 'RECEIVE_ARTIST_INFO_ERROR',
 })

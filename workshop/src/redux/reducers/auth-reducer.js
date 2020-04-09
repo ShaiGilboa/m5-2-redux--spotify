@@ -1,6 +1,10 @@
 const initialState= {
   token: null,
-  status: 'loading',
+  status: 'loading', /* - 'loading'
+                        - 'request'
+                        - 'idle'
+                        - 'error-request-token'
+                      */
 };
 
 export default function authReducer(state = initialState, action) {
@@ -8,7 +12,7 @@ export default function authReducer(state = initialState, action) {
     case 'REQUEST_ACCESS_TOKEN':
       return {
         ...state,
-        status: 'loading',
+        status: 'request',
       }
     case 'RECEIVE_ACCESS_TOKEN':
       return {
